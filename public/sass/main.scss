@@ -2,7 +2,7 @@
 @import 'mixins';
 @import 'fonts';
 @import 'input';
-@import 'background-vid';
+@import 'background';
 
 * {
   box-sizing: border-box;
@@ -11,400 +11,44 @@
 html, body {
   min-height: 100%;
   width: 100%;
-
 }
 
 body {
   margin: 0;
   padding: 0;
   color: #fff;
-  font-family: 'HUGEAvantGardeBold', 'Galaxie', Sans-Serif;
-
-  header {
-    position: relative;
-    background: $magenta;
-    height: 60px;
-    @include desktop {
-      height: 72px;
-    }
-  }
-
-  .desktop-nav {
-    @include mobile {
-      display: none;
-    }
-  }
-
-  .sidebar-mobile-nav{
-    position: absolute;
-    top: 60px;
-    width: 250px;
-    padding: 0;
-    padding-top: 12px;
-    margin: 0;
-    background: $white;
-    z-index: 0;
-    left: -250px;
-    height: auto;
-    @include desktop {
-      display: none;
-    }
-    > li {
-      list-style: none;
-      position: relative;
-      > a {
-        font-size: 16px;
-        font-family: 'HUGEAvantGardeBold';
-        text-decoration: none;
-        color: black;
-        padding: 12px 24px;
-        display: block;
-        text-decoration: none;
-        &:hover {
-          color: $magenta;
-          background: $light_gray;
-        }
-      }
-      &.active {
-        > ul {
-          display: block;
-        }
-        .drop-arrow {
-          transform: rotate(225deg);
-          top: 10px;
-        }
-      }
-      > ul {
-        display: none;
-        padding: 0;
-        max-height: auto;
-        > li {
-          > a {
-            font-size: 14px;
-            color: black;
-            padding: 12px 24px;
-            font-family: 'Galaxie';
-            display: block;
-            text-decoration: none;
-            &:hover {
-              color: $magenta;
-              background: $light_gray;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .drop-arrow, .drop-arrow:after {
-    background: $magenta;
-    width: 10px;
-    height: 2px;
-    position: absolute;
-    top: 24px;
-    right: 10%;
-    transform: rotate(45deg);
-    transform-origin: bottom right;
-    @include desktop {
-      display: none;
-    }
-  }
-  .drop-arrow:after {
-    content: "";
-    transform: rotate(90deg);
-    transform-origin: bottom right;
-    top: 0;
-    right: 2px;
-
-  }
-
-  .toggle {
-    text-decoration: none;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-
-  label:after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: $magenta;
-    height: 60px;
-    width: 200%;
-    z-index: 2;
-    @include desktop {
-      display: none
-    }
-  }
-
-  .veggie-stack{
-    position: absolute;
-    width: 24px;
-    height: 5px;
-    background: $white;
-    top: 25px;
-    left: 24px;
-    margin: 2.5px 0;
-    z-index: 3;
-    @include transition;
-    @include desktop {
-      display: none;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      width: 24px;
-      height: 5px;
-      background: $white;
-      top: -8px;
-      left: 0px;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      width: 24px;
-      height: 5px;
-      background: $white;
-      top: 8px;
-      left: 0px;
-      opacity: 1;
-    }
-  }
-
-
-  .desktop-nav {
-    margin: 0;
-    @include desktop {
-      padding-left: 134px;
-    }
-
-    >li {
-      display: inline-block;
-      list-style: none;
-      font-family: 'HUGEAvantGardeBold';
-      text-decoration: none;
-      cursor: pointer;
-      &:hover,
-      &.active {
-        > a {
-          background: $white;
-          color: $magenta;
-        }
-      }
-
-      > a {
-        display: block;
-        font-size: 1em;
-        padding: 31px 24px 0 24px;
-        list-style: none;
-        text-decoration: none;
-        color: black;
-        height: 72px;
-        @include desktop {
-          color: $white;
-        }
-      }
-      &.active {
-        > ul {
-          display: block;
-        }
-      }
-
-      > ul {
-        display: none;
-        padding: 12px 0;
-        position: absolute;
-        background: $white;
-        z-index: 9999;
-        top: 72px;
-        overflow: hidden;
-        max-height: auto;
-
-        > li {
-          display: block;
-          list-style: none;
-          margin: 0;
-
-          > a {
-            color: black;
-            font-family: 'Galaxie';
-            display: block;
-            font-size: 14px;
-            padding: 12px 24px;
-            text-decoration: none;
-            &:hover {
-              color: $magenta;
-              background: $light_gray;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  #toggle-the-sidebar {
-    display: none;
-    &:checked + .page-wrap {
-      .sidebar-mobile-nav {
-        left: 0;
-        @include transition;
-      }
-      .toggle {
-        right: 5%;
-        @include transition;
-      }
-      .page-content {
-        left: 250px;
-        @include transition;
-        @include desktop {
-          left: 0;
-        }
-      }
-      .mobile-mask {
-        display: block;
-        @include desktop {
-          display: none;
-        }
-      }
-      .huge-logo {
-        left: 24px;
-        position: fixed;
-        @include transition;
-      }
-      .veggie-stack {
-        transform: rotate(225deg);
-        transform-origin: center;
-        @include transition;
-        &:before {
-          transform: rotate(90deg);
-          top: 0;
-        }
-        &:after {
-          opacity: 0;
-        }
-      }
-    }
-  }
+  font-family: 'Galaxie', Sans-Serif;
 
   .page-wrap {
-      height: 100%;
-    .huge-logo {
-      left: -50%;
-      background-image: url(../images/HUGE-white.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: fixed;
-      top: 18px;
-      height: 24px;
-      width: 60px;
-      z-index: 3;
+    height: 100%;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    height: 100%;
+
+    .content {
+      margin: 0 auto;
+      padding: 0 24px;
+      color: black;
+      font-family: 'Galaxie', Sans-Serif;
+      max-width: 968px;
       @include desktop {
-        position: absolute;
-        display: inline;
-        top: 24px;
-        left: 24px;
+        width: 80%;
+        padding: 0;
       }
     }
 
-    .page-content {
-      position: relative;
-      z-index: 0;
-      overflow: hidden;
-      height: 100%;
-      .mobile-mask {
-        display: none;
-        z-index: 1;
-        background-color: $translucent_black;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-      }
-      .overlay {
-        z-index: 1;
-        background-color: $translucent_black;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-      }
+    p.copyright {
+      font-family: 'Helvetica';
+      font-size: 10px;
+      line-height: 48px;
+      color: white;
 
-      .office-bg {
-        background-image: url(../images/background-image.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: relative;
-        height: 240px;
-        @include desktop {
-          height: 640px;
-        }
-      }
-
-      .desktop-h1 {
-        @include mobile {
-          display: none
-        }
-        @include desktop {
-          position: absolute;
-          max-width: 850px;
-          // width: 65%;
-          top: 45%;
-          left: 50%;
-          -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-          margin: 0;
-          font: 120px/1 HUGEAvantGardeBold;
-          letter-spacing: -0.06em;
-          text-align: center;
-        }
-      }
-
-      .content {
-        margin: 0 auto;
-        padding: 0 24px;
-        color: black;
-        font-family: 'Galaxie', Sans-Serif;
-        max-width: 968px;
-        @include desktop {
-          width: 80%;
-          padding: 0;
-        }
-
-        .mobile-h1 {
-          font-family: "HUGEAvantGardeBold";
-          font-size: 36px;
-          padding-top: 50px;
-          margin: 0;
-          @include desktop {
-            display: none;
-          }
-        }
-
-        p {
-          margin: 0;
-          padding: 50px 0;
-          text-align: justify;
-          font-size: 12px;
-          line-height: 20px;
-          @include desktop {
-            font-size: 18px;
-            line-height: 26px;
-          }
-        }
-      }
-
-      p.copyright {
-        font-family: 'Helvetica';
-        font-size: 10px;
-        line-height: 48px;
-        color: white;
-
-        @include desktop {
-          font-size: 12px;
-        }
+      @include desktop {
+        font-size: 12px;
       }
     }
   }
