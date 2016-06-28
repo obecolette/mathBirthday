@@ -1,0 +1,22 @@
+{
+  "name": "mathBirthday",
+  "description": "puzzle",
+  "version": "0.1.0",
+  "authors": [
+    "Rebecca Reese <rebecca.reese@gmail.com>"
+  ],
+  "license": "",
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "morgan": "~1.0.0"
+  }
+}

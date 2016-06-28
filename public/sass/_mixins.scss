@@ -1,0 +1,20 @@
+// media queries
+
+ @mixin mobile {
+    @media (max-width: #{$mobile}) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: #{$mobile}) {
+      @content;
+    }
+  }
+
+  @mixin transition() {
+    transition: .5s ease;
+    -webkit-transition: .5s ease;
+       -moz-transition: .5s ease;
+            transition: .5s ease;
+  }

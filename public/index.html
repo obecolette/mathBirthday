@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <title>HMBD!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<!--   <header>
+    <nav>
+      <ul id="myNav" class="desktop-nav"></ul>
+    </nav>
+  </header> -->
+  <section id="vid" class="background-video-container">
+    <video class="background-video" src="assets/birthday-background.mp4" poster="" autoplay="" muted="" loop=""></video>
+
+  </section>
+  <!-- <input type="checkbox" id="toggle-the-sidebar" name="" value="">
+ -->
+  <div class="page-wrap">
+
+    <!-- <a href=""><div class="logo"></div></a> -->
+
+    <!--  <label for="toggle-the-sidebar" class="toggle">
+      <div class="veggie-stack"></div>
+    </label> -->
+
+    <div class="login-page">
+      <div class="form">
+        <!-- <form class="register-form">
+          <input type="text" placeholder="name"/>
+          <input type="password" placeholder="password"/>
+          <input type="text" placeholder="email address"/>
+          <button>create</button>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form> -->
+        <form class="login-form">
+          <p class="message">Input your birth date to reveal your mathBirthday! <a href="#"></a></p>
+          <input type="text" value="11" placeholder="mm" id="month"/>
+          <input type="text" value="11" placeholder="dd" id="day"/>
+          <input type="text" value="1985" placeholder="yyyy" id="year"/>
+          <button>calculate</button>
+          <p class="message">Your next mathBirthday is your <span id="math-birthday"></span>-day-old birthday on <span id="next-date"></span> <a href="#"></a></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <!-- <div id="overlay" class="mobile-mask"></div> -->
+
+      <!-- <section class="office-bg">
+        <h1 class="desktop-h1">mathBirthday!</h1>
+      </section>
+ -->
+      <section class="content">
+        <!-- <h1 class="mobile-h1">mathBirthday!</h1> -->
+
+
+        <p class="copyright">&copy; 2016 mathBirthday! All Rights Reserved.</p>
+
+      </section>
+
+    </div>
+
+    <!-- <div>
+      <ul id="myNav" class="sidebar-mobile-nav"></ul>
+    </div> -->
+
+  </div>
+
+  <!-- <script src="scripts/nav.js"></script> -->
+  <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+  <script src="scripts/calculateMathBirthday.js"></script>
+
+
+</body>
+</html>

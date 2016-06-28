@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+// loads app.js
+var app = require('../app');
+var port = process.env.PORT || 3000;
+
+app.set('port', port);
+
+app.listen(port, function() {
+  console.log('mathBirthday application is available at http://localhost:' + port);
+});
